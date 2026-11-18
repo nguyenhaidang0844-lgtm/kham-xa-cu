@@ -3,257 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ánh Ngọc · Gương, lược, kẹp tóc khảm xà cừ thủ công Việt</title>
-  <meta name="description" content="Gương, lược và kẹp tóc khảm xà cừ thủ công. Nghề khảm truyền thống Việt Nam trong thiết kế hiện đại. Nhận đặt thiết kế riêng." />
-  <meta property="og:title" content="Ánh Ngọc · Khảm xà cừ Việt" />
-  <meta property="og:description" content="Gương, lược, kẹp tóc khảm xà cừ thủ công, nét xưa cho nhịp sống nay." />
-  <meta property="og:image" content="img/products/guong-01.jpg" />
-  <meta property="og:type" content="website" />
+  <title>Khảm · Lược và kẹp tóc khảm xà cừ, tự thiết kế theo ý bạn</title>
+  <meta name="description" content="Khảm: lược, kẹp tóc khảm xà cừ thủ công Việt Nam. Tự chọn gỗ, họa tiết, màu xà cừ trong Studio và xem trước ngay." />
+  <meta property="og:title" content="Khảm · Khảm xà cừ, thiết kế theo ý bạn" />
+  <meta property="og:image" content="img/mockup/m02-sq.jpg" />
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Noto+Serif+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-
-  <!-- ============ HEADER ============ -->
-  <header class="header" id="top">
-    <div class="container header__inner">
-      <a href="#top" class="logo">
-        <span class="logo__mark" aria-hidden="true"></span>
-        <span class="logo__text"><span data-brand>Ánh Ngọc</span><small data-i18n="tagline">Khảm xà cừ Việt</small></span>
-      </a>
-      <nav class="nav" id="nav">
-        <a href="#cau-chuyen" data-i18n="nav.story">Câu chuyện</a>
-        <a href="#bo-suu-tap" data-i18n="nav.shop">Sản phẩm</a>
-        <a href="#quy-trinh" data-i18n="nav.process">Quy trình</a>
-        <a href="#dat-rieng" data-i18n="nav.custom">Đặt riêng</a>
-        <a href="#lien-he" data-i18n="nav.contact">Liên hệ</a>
-      </nav>
-      <div class="header__actions">
-        <button class="lang" id="langToggle" aria-label="Đổi ngôn ngữ / Switch language">EN</button>
-        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- ============ HERO ============ -->
-    <section class="hero">
+<body data-page="home">
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero on-dark">
       <div class="container hero__inner">
-        <div class="hero__text reveal">
-          <p class="eyebrow" data-i18n="hero.eyebrow">Thủ công mỹ nghệ Việt Nam</p>
-          <h1 data-i18n="hero.title">Ánh xà cừ,<br /><em>nét xưa</em> trong nhịp sống nay</h1>
-          <p class="lead" data-i18n="hero.lead">Gương, lược và kẹp tóc khảm xà cừ được chế tác tỉ mỉ, mang nghề khảm truyền thống vào những vật dụng bạn dùng mỗi ngày.</p>
-          <div class="hero__cta">
-            <a href="#bo-suu-tap" class="btn btn--primary" data-i18n="hero.cta1">Xem bộ sưu tập</a>
-            <a href="#dat-rieng" class="btn btn--ghost" data-i18n="hero.cta2">Đặt thiết kế riêng</a>
+        <a class="hero__arch arch" href="cua-hang.html?item=kep-son-mai-mai-trang" aria-label="Kẹp sơn mài Mai Trắng">
+          <img src="img/mockup/m06-sq.jpg" alt="" />
+        </a>
+        <div class="hero__center fade-in">
+          <img class="logo-big" src="img/brand/logo-ivory.png" alt="Khảm" width="600" height="320" />
+          <p class="lead">Lược và kẹp tóc khảm xà cừ thủ công Việt Nam. Bạn chọn gỗ, họa tiết và màu xà cừ, thợ khảm làm đúng bản thiết kế ấy.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary btn--light" href="studio.html">Tự thiết kế</a>
+            <a class="btn btn--ghost btn--light" href="cua-hang.html">Xem cửa hàng</a>
           </div>
-          <ul class="hero__facts">
-            <li><strong>100%</strong><span data-i18n="hero.f1">khảm thủ công</span></li>
-            <li><strong>20k–550k</strong><span data-i18n="hero.f2">nhiều mức giá</span></li>
-            <li><strong>3</strong><span data-i18n="hero.f3">dòng sản phẩm</span></li>
+        </div>
+        <a class="hero__arch arch" href="cua-hang.html?item=luoc-trang-may-sao" aria-label="Lược bán nguyệt Mây Sao">
+          <img src="img/mockup/m04-sq.jpg" alt="" />
+        </a>
+      </div>
+      <div class="band band--inverse" aria-hidden="true"></div>
+    </section>
+
+    <!-- SẢN PHẨM NỔI BẬT -->
+    <section class="section container">
+      <div class="section-head">
+        <div><h2 class="h2">Sản phẩm nổi bật</h2><span class="sheen-rule"></span></div>
+        <a class="link" href="cua-hang.html">Xem tất cả sản phẩm</a>
+      </div>
+      <div class="grid" id="featured"></div>
+    </section>
+
+    <!-- CÂU CHUYỆN CHẤT LIỆU -->
+    <section class="section" style="background: var(--ivory-2)">
+      <div class="container split">
+        <figure class="split__media"><div class="arch"><img src="img/texture/nacre-spiral.jpg" alt="Cận cảnh mặt trong vỏ trai óng ánh" loading="lazy" /></div></figure>
+        <div>
+          <h2 class="h2">Từ vỏ trai đến món đồ trên tay bạn</h2>
+          <span class="sheen-rule"></span>
+          <p class="lead" style="margin-top:24px">Xà cừ là lớp óng ánh bên trong vỏ trai, vỏ ốc. Ánh sáng đi qua những lớp mỏng chồng lên nhau rồi tách thành hồng, tím, xanh, nên không có hai mảnh nào giống hệt nhau.</p>
+          <ul class="facts">
+            <li><strong>Xà cừ</strong><span>Vỏ trai và ốc trong nước, cắt mài thành mảnh mỏng 0,5–1 mm theo bản vẽ.</span></li>
+            <li><strong>Gỗ</strong><span>Mun đen, hương đỏ nâu, bách vàng sáng. Gỗ được phơi khô để không cong vênh.</span></li>
+            <li><strong>Sơn mài</strong><span>Nhiều lớp sơn phủ, mài và đánh bóng bằng tay cho mặt đen sâu.</span></li>
+            <li><strong>Hoàn thiện</strong><span>Mài phẳng mặt khảm, bo tròn răng lược, phủ dầu tự nhiên an toàn cho tóc.</span></li>
           </ul>
-        </div>
-        <div class="hero__media reveal">
-          <div class="hero__frame">
-            <img src="img/products/guong-01.jpg" alt="Gương cầm tay khảm xà cừ hoa trắng" width="1200" height="1100" fetchpriority="high" />
-          </div>
-          <div class="hero__badge">
-            <img src="img/products/kep-02.jpg" alt="" />
-            <span data-i18n="hero.badge">Mỗi món là một<br />ánh ngọc riêng</span>
-          </div>
+          <a class="link" href="cau-chuyen.html">Đọc câu chuyện nghề khảm</a>
         </div>
       </div>
     </section>
 
-    <!-- ============ CÂU CHUYỆN ============ -->
-    <section class="section story" id="cau-chuyen">
-      <div class="container story__inner">
-        <div class="story__title reveal">
-          <p class="eyebrow" data-i18n="story.eyebrow">Câu chuyện</p>
-          <h2 data-i18n="story.title">Hồi sinh một nghề xưa đang dần bị lãng quên</h2>
+    <!-- STUDIO -->
+    <section class="section on-dark">
+      <div class="container teaser">
+        <div>
+          <div class="teaser__stage" id="teaserStage"></div>
+          <div class="teaser__swatches" id="teaserNacre" role="group" aria-label="Thử màu xà cừ"></div>
         </div>
-        <div class="story__body reveal">
-          <p data-i18n="story.p1">Khảm xà cừ là kỹ nghệ thủ công mỹ nghệ lâu đời và giàu giá trị văn hóa của Việt Nam. Chúng tôi muốn đưa vẻ đẹp ấy đến gần hơn với đời sống hiện đại.</p>
-          <p data-i18n="story.p2">Mỗi chiếc gương, chiếc lược hay kẹp tóc đều mang dấu ấn riêng, kết hợp nét đẹp cổ truyền với phong cách đương đại. Qua từng sản phẩm, chúng tôi mong góp phần gìn giữ tinh hoa văn hóa Việt để những giá trị xưa tiếp tục hiện diện trong cuộc sống hôm nay.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ BỘ SƯU TẬP ============ -->
-    <section class="section shop" id="bo-suu-tap">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow" data-i18n="shop.eyebrow">Bộ sưu tập</p>
-          <h2 data-i18n="shop.title">Vật dụng cá nhân khảm xà cừ</h2>
-        </div>
-        <div class="filters reveal" role="toolbar" aria-label="Lọc sản phẩm">
-          <div class="filters__group" id="catFilter">
-            <button class="chip is-active" data-cat="all" data-i18n="shop.all">Tất cả</button>
-            <button class="chip" data-cat="guong" data-i18n="cat.guong">Gương</button>
-            <button class="chip" data-cat="luoc" data-i18n="cat.luoc">Lược</button>
-            <button class="chip" data-cat="kep" data-i18n="cat.kep">Kẹp tóc</button>
-          </div>
-          <div class="filters__group" id="tierFilter">
-            <button class="chip chip--sm is-active" data-tier="all" data-i18n="shop.allTiers">Mọi mức giá</button>
-            <button class="chip chip--sm" data-tier="pho_thong" data-i18n="tier.pho_thong">Phổ thông</button>
-            <button class="chip chip--sm" data-tier="cau_ky" data-i18n="tier.cau_ky">Cầu kỳ</button>
+        <div>
+          <h2 class="h2">Tự thiết kế, xem trước ngay</h2>
+          <span class="sheen-rule"></span>
+          <p class="lead" style="margin-top:24px">Thử chạm vào các màu xà cừ bên cạnh. Trong Studio, bạn chọn thêm dáng lược hoặc kẹp, nền gỗ và họa tiết. Mất khoảng một phút.</p>
+          <ol class="steps-inline">
+            <li>Chọn sản phẩm: lược bán nguyệt, lược sóng, kẹp bầu dục, kẹp thanh</li>
+            <li>Chọn nền: gỗ mun, gỗ hương, gỗ bách hoặc sơn mài</li>
+            <li>Chọn họa tiết: hoa chuông, mây sao, hoa mai, hoa sen</li>
+            <li>Chọn màu xà cừ, xem giá và thêm vào giỏ</li>
+          </ol>
+          <div class="row" style="margin-top:32px">
+            <a class="btn btn--primary btn--light" id="teaserCta" href="studio.html">Mở Studio</a>
           </div>
         </div>
-        <div class="grid" id="productGrid" aria-live="polite"></div>
-        <p class="empty" id="emptyMsg" hidden data-i18n="shop.empty">Chưa có mẫu phù hợp, hãy đặt thiết kế riêng nhé.</p>
       </div>
     </section>
 
-    <!-- ============ QUY TRÌNH ============ -->
-    <section class="section process" id="quy-trinh">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow" data-i18n="process.eyebrow">Quy trình chế tác</p>
-          <h2 data-i18n="process.title">Sáu bước, một món đồ</h2>
-        </div>
-        <ol class="steps">
-          <li class="step reveal"><span class="step__no">01</span><h3 data-i18n="process.s1t">Chuẩn bị nguyên liệu</h3><p data-i18n="process.s1">Tuyển chọn xà cừ hợp pháp, rõ nguồn gốc cùng phôi nền gỗ, nhựa hoặc kim loại. Làm sạch, phân loại và kiểm tra độ bền.</p></li>
-          <li class="step reveal"><span class="step__no">02</span><h3 data-i18n="process.s2t">Thiết kế mẫu</h3><p data-i18n="process.s2">Kết hợp họa tiết di sản Việt như hoa sen, chim phượng, hoa văn cung đình với phong cách tối giản hiện đại.</p></li>
-          <li class="step reveal"><span class="step__no">03</span><h3 data-i18n="process.s3t">Tạo hình xà cừ</h3><p data-i18n="process.s3">Cắt mài xà cừ thành từng mảnh nhỏ theo đúng bản vẽ để hoa văn đồng đều khi lắp ghép.</p></li>
-          <li class="step reveal"><span class="step__no">04</span><h3 data-i18n="process.s4t">Khảm xà cừ</h3><p data-i18n="process.s4">Đục rãnh khảm âm truyền thống trên gỗ hoặc gắn trang trí chuyên dụng trên phụ kiện nhỏ.</p></li>
-          <li class="step reveal"><span class="step__no">05</span><h3 data-i18n="process.s5t">Hoàn thiện bề mặt</h3><p data-i18n="process.s5">Gia cố, mài nhẵn, phủ lớp bảo vệ giữ độ óng ánh. Bo tròn góc cạnh để an toàn khi chạm da và tóc.</p></li>
-          <li class="step reveal"><span class="step__no">06</span><h3 data-i18n="process.s6t">Kiểm định &amp; đóng gói</h3><p data-i18n="process.s6">Kiểm tra độ bền và độ tinh xảo, đóng hộp giấy hoặc túi vải kèm thẻ kể câu chuyện văn hóa.</p></li>
-        </ol>
+    <!-- TAY NGHỀ -->
+    <section class="section container">
+      <div class="section-head">
+        <div><h2 class="h2">Làm bằng tay, từng mảnh một</h2><span class="sheen-rule"></span></div>
+        <a class="link" href="cau-chuyen.html">Quy trình sáu bước</a>
+      </div>
+      <div class="craft-strip">
+        <figure><img src="img/story/detail-dragon.jpg" alt="Mặt gỗ khảm xà cừ họa tiết rồng phượng" loading="lazy" /><figcaption>Mảnh xà cừ được ghép khít vào rãnh khoét trên gỗ</figcaption></figure>
+        <figure><img src="img/story/hands-1.jpg" alt="Đôi tay nghệ nhân gắn mảnh xà cừ" loading="lazy" /><figcaption>Gắn từng mảnh theo bản vẽ</figcaption></figure>
+        <figure><img src="img/story/artisan-2.jpg" alt="Thợ ngồi cưa mảnh xà cừ" loading="lazy" /><figcaption>Cưa và mài vỏ trai</figcaption></figure>
       </div>
     </section>
 
-    <!-- ============ HỌA TIẾT ============ -->
-    <section class="section motifs">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow" data-i18n="motifs.eyebrow">Ý nghĩa họa tiết</p>
-          <h2 data-i18n="motifs.title">Mỗi hoa văn là một lời chúc</h2>
-        </div>
-        <div class="motifs__grid">
-          <article class="motif reveal">
-            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12c6 8 6 20 0 28-6-8-6-20 0-28zM32 40c-8-2-16-8-18-16 8 0 15 6 18 16zm0 0c8-2 16-8 18-16-8 0-15 6-18 16zM14 46h36"/></svg>
-            <h3 data-i18n="motifs.m1t">Hoa sen</h3>
-            <p data-i18n="motifs.m1">Biểu tượng của sự thanh khiết, vươn lên từ bùn mà không hôi tanh mùi bùn.</p>
-          </article>
-          <article class="motif reveal">
-            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 40c10 0 16-6 18-16 2 10 8 16 18 16M32 24c0-6 4-10 10-10M32 24c0-6-4-10-10-10M20 40c2 6 7 10 12 10s10-4 12-10"/></svg>
-            <h3 data-i18n="motifs.m2t">Chim phượng</h3>
-            <p data-i18n="motifs.m2">Linh vật của sự cao quý, may mắn và vẻ đẹp nữ tính.</p>
-          </article>
-          <article class="motif reveal">
-            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 32h40M32 12v40M18 18l28 28M46 18L18 46"/><circle cx="32" cy="32" r="8"/></svg>
-            <h3 data-i18n="motifs.m3t">Hoa văn cung đình</h3>
-            <p data-i18n="motifs.m3">Đường nét đối xứng, chuẩn mực từ mỹ thuật cung đình xưa.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ĐẶT RIÊNG + BẢNG GIÁ ============ -->
-    <section class="section custom" id="dat-rieng">
-      <div class="container custom__inner">
-        <div class="custom__text reveal">
-          <p class="eyebrow" data-i18n="custom.eyebrow">Thiết kế riêng</p>
-          <h2 data-i18n="custom.title">Một món quà chỉ dành cho một người</h2>
-          <p data-i18n="custom.p">Bạn chọn dáng sản phẩm, họa tiết và loại xà cừ, chế tác viên của chúng tôi tư vấn từng bước. Giá được tính theo nguyên liệu bạn chọn cộng công chế tác.</p>
-          <ul class="checks">
-            <li data-i18n="custom.c1">Tư vấn mẫu và nguyên liệu miễn phí</li>
-            <li data-i18n="custom.c2">Chọn họa tiết, loại xà cừ theo ý thích</li>
-            <li data-i18n="custom.c3">Hộp quà kèm thẻ câu chuyện văn hóa</li>
-          </ul>
-          <a class="btn btn--primary" data-link="customOrderForm" target="_blank" rel="noopener" data-i18n="custom.cta">Gửi yêu cầu thiết kế</a>
-        </div>
-        <div class="pricing reveal">
-          <h3 data-i18n="pricing.title">Bảng giá tham khảo</h3>
-          <table>
-            <thead><tr><th data-i18n="pricing.product">Sản phẩm</th><th data-i18n="tier.pho_thong">Phổ thông</th><th data-i18n="tier.cau_ky">Cầu kỳ</th></tr></thead>
-            <tbody>
-              <tr><td data-i18n="pricing.guong">Gương</td><td>100k–200k</td><td>300k–550k</td></tr>
-              <tr><td data-i18n="pricing.luoc">Lược</td><td>100k–200k</td><td>300k–450k</td></tr>
-              <tr><td data-i18n="pricing.kep">Kẹp tóc</td><td>20k–70k</td><td>200k–350k</td></tr>
-            </tbody>
-          </table>
-          <p class="pricing__note" data-i18n="pricing.note">Thiết kế riêng: giá theo nguyên liệu bạn chọn cộng công chế tác.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CAM KẾT ============ -->
-    <section class="section promise">
-      <div class="container promise__grid">
-        <div class="promise__item reveal"><h3 data-i18n="promise.t1">Nguồn gốc rõ ràng</h3><p data-i18n="promise.p1">Xà cừ hợp pháp, ưu tiên nguyên liệu trong nước.</p></div>
-        <div class="promise__item reveal"><h3 data-i18n="promise.t2">An toàn khi dùng</h3><p data-i18n="promise.p2">Bo tròn góc cạnh, phủ bảo vệ chống bong tróc.</p></div>
-        <div class="promise__item reveal"><h3 data-i18n="promise.t3">Kiểm tra từng món</h3><p data-i18n="promise.p3">Kiểm định độ bền và độ tinh xảo trước khi giao.</p></div>
-        <div class="promise__item reveal"><h3 data-i18n="promise.t4">Đóng gói làm quà</h3><p data-i18n="promise.p4">Hộp giấy hoặc túi vải, kèm thẻ câu chuyện.</p></div>
-      </div>
+    <section class="container services" aria-label="Dịch vụ">
+      <div><h3>Giao toàn quốc</h3><p>Miễn phí cho đơn từ 500.000₫</p></div>
+      <div><h3>Hộp quà</h3><p>Hộp giấy kèm thẻ kể ý nghĩa họa tiết</p></div>
+      <div><h3>7–14 ngày</h3><p>Thời gian làm một thiết kế riêng</p></div>
+      <div><h3>Đổi trong 7 ngày</h3><p>Nếu sản phẩm có lỗi chế tác</p></div>
     </section>
   </main>
 
-  <!-- ============ FOOTER / LIÊN HỆ ============ -->
-  <footer class="footer" id="lien-he">
-    <div class="container footer__inner">
-      <div>
-        <a href="#top" class="logo logo--light">
-          <span class="logo__mark" aria-hidden="true"></span>
-          <span class="logo__text"><span data-brand>Ánh Ngọc</span><small data-i18n="tagline">Khảm xà cừ Việt</small></span>
-        </a>
-        <p class="footer__about" data-i18n="footer.about">Gìn giữ tinh hoa thủ công Việt trong nhịp sống hiện đại.</p>
-      </div>
-      <div>
-        <h4 data-i18n="footer.order">Đặt hàng</h4>
-        <ul class="footer__links">
-          <li><a data-link="instagram" target="_blank" rel="noopener">Instagram <span data-text="instagramHandle"></span></a></li>
-          <li><a data-link="zalo" target="_blank" rel="noopener">Zalo <span data-text="phone"></span></a></li>
-          <li><a data-link="email"><span data-text="email"></span></a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="footer.policy">Chính sách</h4>
-        <ul class="footer__links">
-          <li data-i18n="footer.ship">Giao hàng toàn quốc, 2–5 ngày</li>
-          <li data-i18n="footer.return">Đổi mẫu trong 7 ngày nếu lỗi chế tác</li>
-          <li data-i18n="footer.customTime">Thiết kế riêng: 7–14 ngày</li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer__bottom">
-      <span>© <span id="year"></span> <span data-brand>Ánh Ngọc</span></span>
-      <a href="#top" data-i18n="footer.top">Lên đầu trang ↑</a>
-    </div>
-  </footer>
-
-  <!-- ============ MODAL CHI TIẾT SẢN PHẨM ============ -->
-  <dialog class="modal" id="productModal" aria-labelledby="modalTitle">
-    <button class="modal__close" id="modalClose" aria-label="Đóng">×</button>
-    <div class="modal__body">
-      <div class="modal__media"><img id="modalImg" src="" alt="" /></div>
-      <div class="modal__info">
-        <p class="eyebrow" id="modalCat"></p>
-        <h3 id="modalTitle"></h3>
-        <p class="modal__price" id="modalPrice"></p>
-        <p id="modalDesc"></p>
-        <ul class="modal__meta">
-          <li data-i18n="modal.m1">Khảm thủ công, mỗi món có vân ánh riêng</li>
-          <li data-i18n="modal.m2">Đóng hộp quà kèm thẻ câu chuyện</li>
-        </ul>
-        <div class="modal__cta">
-          <a class="btn btn--primary" data-link="instagram" target="_blank" rel="noopener" data-i18n="modal.ig">Đặt qua Instagram</a>
-          <a class="btn btn--ghost" data-link="zalo" target="_blank" rel="noopener" data-i18n="modal.zalo">Chat Zalo</a>
-        </div>
-        <p class="modal__hint" data-i18n="modal.hint">Gửi tên mẫu cho chúng tôi để được tư vấn và báo phí ship.</p>
-      </div>
-    </div>
-  </dialog>
-
-  <a class="float-chat" data-link="zalo" target="_blank" rel="noopener" aria-label="Chat Zalo">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg>
-  </a>
-
   <script src="js/data.js"></script>
-  <script src="js/i18n.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

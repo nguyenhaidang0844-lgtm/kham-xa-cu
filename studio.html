@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio thiết kế · Khảm</title>
+  <meta name="description" content="Tự thiết kế lược và kẹp tóc khảm xà cừ: chọn gỗ, họa tiết, màu xà cừ và xem trước ngay lập tức." />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Noto+Serif+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="studio">
+  <main id="main" class="studio">
+    <section class="studio__stage" aria-label="Xem trước thiết kế">
+      <div class="studio__canvas" id="stage" aria-live="polite"></div>
+      <div class="studio__caption">
+        <strong id="capName"></strong>
+        <span id="capSpec"></span>
+      </div>
+    </section>
+
+    <section class="studio__panel" aria-label="Tùy chỉnh">
+      <div>
+        <h1>Studio thiết kế</h1>
+        <p class="muted" style="margin-top:8px">Bốn bước, xem trước ngay sau mỗi lựa chọn. Thợ khảm sẽ làm đúng theo bản thiết kế này.</p>
+      </div>
+
+      <div>
+        <div class="step-title"><h2>1 · Sản phẩm</h2><span id="lblProduct"></span></div>
+        <div class="options" id="optProduct" role="group" aria-label="Chọn sản phẩm"></div>
+      </div>
+
+      <div>
+        <div class="step-title"><h2>2 · Nền gỗ và sơn mài</h2><span id="lblBase"></span></div>
+        <div class="chips" id="optBase" role="group" aria-label="Chọn chất liệu nền"></div>
+      </div>
+
+      <div>
+        <div class="step-title"><h2>3 · Họa tiết khảm</h2><span id="lblMotif"></span></div>
+        <div class="options" id="optMotif" role="group" aria-label="Chọn họa tiết"></div>
+        <p class="motif-note" id="motifNote"></p>
+      </div>
+
+      <div>
+        <div class="step-title"><h2>4 · Màu xà cừ</h2><span id="lblNacre"></span></div>
+        <div class="swatches" id="optNacre" role="group" aria-label="Chọn màu xà cừ"></div>
+      </div>
+
+      <div class="summary" id="summary"></div>
+
+      <div class="studio__actions">
+        <div class="qty" aria-label="Số lượng">
+          <button type="button" data-step="-1" aria-label="Giảm">−</button>
+          <input id="qty" type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="Số lượng" />
+          <button type="button" data-step="1" aria-label="Tăng">+</button>
+        </div>
+        <button class="btn btn--primary" id="addCart" type="button">Thêm vào giỏ</button>
+        <button class="btn btn--ghost" id="saveDesign" type="button">Lưu thiết kế</button>
+      </div>
+
+      <div class="saved">
+        <div class="step-title"><h2>Thiết kế đã lưu</h2><button class="text-btn" id="resetDesign" type="button">Bắt đầu lại</button></div>
+        <div class="saved__list" id="savedList"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/studio.js"></script>
+</body>
+</html>

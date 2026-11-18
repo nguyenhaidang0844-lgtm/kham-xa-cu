@@ -1,30 +1,29 @@
-# Website Khảm Xà Cừ
+# Website Khảm
 
-Web tĩnh (HTML/CSS/JS), không cần cài đặt gì.
+Web tĩnh (HTML, CSS, JavaScript thuần), không cần cài đặt. Giỏ hàng, thiết kế đã lưu và đơn hàng được lưu trong trình duyệt (localStorage).
+
+## Các trang
+| Trang | File |
+|---|---|
+| Trang chủ | `index.html` |
+| Cửa hàng | `cua-hang.html` (thêm `?cat=kep` để lọc, `?item=<id>` để mở sẵn sản phẩm) |
+| Studio thiết kế | `studio.html` (thêm `?product=&base=&motif=&nacre=` để mở sẵn một thiết kế) |
+| Câu chuyện | `cau-chuyen.html` |
+| Giỏ hàng và đặt hàng | `gio-hang.html` |
 
 ## Sửa nhanh
 | Muốn sửa | Mở file |
 |---|---|
-| Tên thương hiệu, Instagram, Zalo, email, link Google Form | `js/data.js` → `SITE` |
-| Thêm/sửa sản phẩm, giá, mô tả | `js/data.js` → `PRODUCTS` |
-| Nội dung tiếng Việt | `index.html` |
-| Nội dung tiếng Anh | `js/i18n.js` |
-| Màu sắc, font | `css/style.css` → `:root` |
+| Instagram, Zalo, email, phí giao hàng | `js/data.js` → `SITE` |
+| Sản phẩm, giá, mô tả, chất liệu | `js/data.js` → `PRODUCTS` |
+| Lựa chọn và giá trong Studio | `js/data.js` → `STUDIO` |
+| Hình dáng sản phẩm, cách vẽ họa tiết | `js/renderer.js` |
+| Header, footer | `js/layout.js` |
+| Màu, font | `css/style.css` → `:root` |
 
-**Lưu ý:** tên thương hiệu còn xuất hiện trong thẻ `<title>` và `og:title` ở đầu `index.html`, nhớ sửa cả ở đó.
-
-## Thay ảnh
-Chép ảnh mới đè lên file **cùng tên** trong `img/products/` (`guong-01.jpg`, `luoc-01.jpg`, `kep-01.jpg`…).
-Ảnh nên là JPG, cạnh dài tối đa khoảng 1200px, dung lượng dưới 300KB, khung dọc 4:5 là đẹp nhất.
-Muốn thêm sản phẩm mới thì thêm ảnh rồi thêm một mục vào `PRODUCTS`.
+Quy tắc thiết kế xem ở `../DESIGN-SYSTEM.md`.
 
 ## Xem thử trên máy
-Mở `index.html` bằng trình duyệt, hoặc chạy:
 ```
 npx http-server website -p 5500
 ```
-
-## Đưa lên mạng (miễn phí)
-1. Vào https://app.netlify.com/drop
-2. Kéo thả cả thư mục `website` vào trang đó
-3. Netlify cấp link dạng `xxx.netlify.app`. Có thể đổi tên link hoặc gắn tên miền riêng trong phần cài đặt.

@@ -1,117 +1,190 @@
 /* =========================================================
-   CẤU HÌNH & DỮ LIỆU WEBSITE
-   Chỉ cần sửa file này để đổi thông tin liên hệ / sản phẩm.
+   DỮ LIỆU WEBSITE KHẢM. Sửa thông tin, sản phẩm, giá ở đây.
    ========================================================= */
 
 const SITE = {
-  // TODO: thay bằng tên thương hiệu chính thức
-  brand: "Ánh Ngọc",
-  tagline: { vi: "Khảm xà cừ Việt", en: "Vietnamese mother-of-pearl" },
-
+  brand: "Khảm",
   // TODO: thay bằng thông tin thật
-  instagram: "https://instagram.com/",      // vd: https://instagram.com/anhngoc.khamxacu
-  instagramHandle: "@anhngoc.khamxacu",
-  zalo: "https://zalo.me/0900000000",       // vd: https://zalo.me/09xxxxxxxx
+  instagram: "https://instagram.com/",
+  instagramHandle: "@kham.xacu",
+  zalo: "https://zalo.me/0900000000",
   phone: "0900 000 000",
-  email: "hello@example.com",
-  customOrderForm: "https://forms.gle/",    // link Google Form đặt thiết kế riêng
+  email: "hello@kham.vn",
+  freeShipFrom: 500000,
+  shippingFee: 30000,
 };
 
-/* Phân loại sản phẩm */
 const CATEGORIES = {
-  guong: { vi: "Gương", en: "Mirrors" },
-  luoc:  { vi: "Lược", en: "Combs" },
-  kep:   { vi: "Kẹp tóc", en: "Hair clips" },
+  luoc: "Lược",
+  kep: "Kẹp tóc",
+  guong: "Gương",
 };
 
-const TIERS = {
-  pho_thong: { vi: "Phổ thông", en: "Essential" },
-  cau_ky:    { vi: "Cầu kỳ", en: "Signature" },
-};
-
-/* Danh sách sản phẩm.
-   - img: đặt ảnh trong img/products/ (thay file cùng tên là xong)
-   - price: giá bán (VNĐ). TODO: cập nhật giá chính thức từng mẫu */
+/* Sản phẩm có sẵn.
+   woods: các loại gỗ khách chọn được (giá không đổi).
+   studio: cấu hình mở sẵn trong Studio khi bấm "Tùy chỉnh mẫu này". */
 const PRODUCTS = [
   {
-    id: "guong-hoa-suong", cat: "guong", tier: "cau_ky", price: 450000,
-    img: "img/products/guong-01.jpg",
-    name: { vi: "Gương cầm tay Hoa Sương", en: "Dew Blossom Hand Mirror" },
-    desc: {
-      vi: "Viền gương khảm xà cừ trắng ánh hồng, cành hoa và sao nhỏ chạy dọc tay cầm, kèm dây treo ngọc trai và mặt hoa xà cừ.",
-      en: "A frame inlaid with pink-white mother-of-pearl, a flowering branch running down the handle, finished with a pearl charm.",
-    },
+    id: "luoc-song-hoa-chuong", cat: "luoc", price: 350000, featured: true,
+    name: "Lược sóng Hoa Chuông",
+    imgs: ["img/mockup/m01-sq.jpg", "img/mockup/m02-sq.jpg", "img/mockup/m10-sq.jpg", "img/mockup/m09-sq.jpg"],
+    desc: "Dáng lược lượn như sóng, một dây hoa chuông khảm xà cừ chạy dọc sống lược. Răng thưa, chải êm cho tóc dài.",
+    material: "Gỗ mun, gỗ hương hoặc gỗ bách · xà cừ trắng và hồng · phủ dầu tự nhiên",
+    woods: ["mun", "huong", "bach"],
+    studio: { product: "luoc-song", base: "mun", motif: "chuong", nacre: "hong" },
   },
   {
-    id: "luoc-anh-dao", cat: "luoc", tier: "cau_ky", price: 420000,
-    img: "img/products/luoc-01.jpg",
-    name: { vi: "Lược Anh Đào", en: "Cherry Blossom Comb" },
-    desc: {
-      vi: "Lược dáng lượn sóng, cành anh đào khảm xà cừ nổi trên nền trong suốt, kèm dây tua ngọc trai.",
-      en: "A wave-shaped comb with an inlaid cherry-blossom branch and a pearl tassel.",
-    },
+    id: "luoc-trang-may-sao", cat: "luoc", price: 320000, featured: true,
+    name: "Lược bán nguyệt Mây Sao",
+    imgs: ["img/mockup/m04-sq.jpg", "img/mockup/m03-sq.jpg"],
+    desc: "Lược hình trăng khuyết, những vòng mây cuộn và ngôi sao bốn cánh bằng xà cừ trắng ánh ngọc.",
+    material: "Gỗ mun hoặc gỗ hương · xà cừ trắng · phủ dầu tự nhiên",
+    woods: ["mun", "huong"],
+    studio: { product: "luoc-trang", base: "mun", motif: "maysao", nacre: "ngoc" },
   },
   {
-    id: "luoc-ngoc-no", cat: "luoc", tier: "pho_thong", price: 190000,
-    img: "img/products/luoc-02.jpg",
-    name: { vi: "Lược gỡ rối Ngọc Nơ", en: "Pearl Bow Paddle Brush" },
-    desc: {
-      vi: "Lược chải gỡ rối, thân khảm xà cừ ô vuông óng ánh, điểm nơ đính đá ở tay cầm.",
-      en: "Detangling brush with a checkered mother-of-pearl body and a jewelled bow on the handle.",
-    },
+    id: "kep-son-mai-hoa-chuong", cat: "kep", price: 240000, featured: true,
+    name: "Kẹp sơn mài Hoa Chuông",
+    imgs: ["img/mockup/m05-sq.jpg"],
+    desc: "Kẹp bầu dục sơn mài đen bóng, nhành hoa chuông hồng khảm xà cừ nghiêng theo dáng kẹp.",
+    material: "Sơn mài đen trên cốt gỗ · xà cừ hồng và trắng · lò xo thép không gỉ",
+    studio: { product: "kep-oval", base: "sonmai", motif: "chuong", nacre: "hong" },
   },
   {
-    id: "kep-no-bien", cat: "kep", tier: "cau_ky", price: 260000,
-    img: "img/products/kep-01.jpg",
-    name: { vi: "Kẹp nơ Sắc Biển", en: "Ocean Shimmer Bow Clip" },
-    desc: {
-      vi: "Kẹp nơ khảm vỏ bào ngư ánh xanh tím, sắc màu đổi theo góc nhìn.",
-      en: "A bow clip inlaid with blue-violet abalone shell that shifts colour with the light.",
-    },
+    id: "kep-son-mai-mai-trang", cat: "kep", price: 250000, featured: true,
+    name: "Kẹp sơn mài Mai Trắng",
+    imgs: ["img/mockup/m06-sq.jpg"],
+    desc: "Một bông mai lớn và hai nụ nhỏ trên nền sơn mài đen, gợi cành mai ngày Tết.",
+    material: "Sơn mài đen trên cốt gỗ · xà cừ trắng ánh ngọc · lò xo thép không gỉ",
+    studio: { product: "kep-oval", base: "sonmai", motif: "mai", nacre: "ngoc" },
   },
   {
-    id: "kep-trang-sao", cat: "kep", tier: "cau_ky", price: 240000,
-    img: "img/products/kep-02.jpg",
-    name: { vi: "Kẹp Trăng Sao", en: "Moon & Star Clip" },
-    desc: {
-      vi: "Vầng trăng khuyết khảm xà cừ trắng, điểm ngôi sao nhỏ khảm bào ngư.",
-      en: "A crescent moon in white mother-of-pearl with a small abalone star.",
-    },
+    id: "kep-son-mai-mai-hong", cat: "kep", price: 260000,
+    name: "Kẹp sơn mài Mai Hồng",
+    imgs: ["img/mockup/m07-sq.jpg"],
+    desc: "Cành mai trải dài theo kẹp, xen hoa hồng nhạt và trắng, điểm chấm xà cừ như phấn hoa.",
+    material: "Sơn mài đen trên cốt gỗ · xà cừ hồng và trắng · lò xo thép không gỉ",
+    studio: { product: "kep-oval", base: "sonmai", motif: "mai", nacre: "hong" },
   },
   {
-    id: "kep-no-ngoc", cat: "kep", tier: "cau_ky", price: 220000,
-    img: "img/products/kep-03.jpg",
-    name: { vi: "Kẹp nơ Ngọc Trắng", en: "Pearl White Bow Clip" },
-    desc: {
-      vi: "Kẹp nơ viền vàng, khảm xà cừ trắng ngà, hợp đi học, đi làm lẫn dự tiệc.",
-      en: "Gold-rimmed bow clip in ivory mother-of-pearl, for school, work or evenings out.",
-    },
+    id: "kep-son-mai-xuan", cat: "kep", price: 260000,
+    name: "Kẹp sơn mài Xuân Thì",
+    imgs: ["img/mockup/m08-sq.jpg"],
+    desc: "Hai cụm hoa ở hai đầu kẹp, giữa là khoảng sơn đen để trống cho mắt nghỉ.",
+    material: "Sơn mài đen trên cốt gỗ · xà cừ hồng và trắng · lò xo thép không gỉ",
+    studio: { product: "kep-oval", base: "sonmai", motif: "mai", nacre: "hong" },
   },
   {
-    id: "kep-hoa-mai", cat: "kep", tier: "pho_thong", price: 65000,
-    img: "img/products/kep-04.jpg",
-    name: { vi: "Kẹp hoa Mai Ngọc", en: "Pearl Blossom Clip" },
-    desc: {
-      vi: "Bông hoa năm cánh khảm xà cừ, nhụy ngọc trai, nhỏ xinh dễ phối đồ.",
-      en: "A five-petal mother-of-pearl flower with a pearl centre, small and easy to wear.",
-    },
+    id: "guong-hoa-suong", cat: "guong", price: 450000,
+    name: "Gương cầm tay Hoa Sương",
+    imgs: ["img/products/guong-01.jpg"],
+    desc: "Viền gương khảm xà cừ trắng ánh hồng, cành hoa chạy dọc tay cầm, kèm dây treo ngọc trai.",
+    material: "Khung hợp kim mạ vàng nhạt · xà cừ trắng · ngọc trai nhân tạo",
   },
   {
-    id: "kep-buom", cat: "kep", tier: "pho_thong", price: 60000,
-    img: "img/products/kep-05.jpg",
-    name: { vi: "Kẹp Bướm Ngà", en: "Ivory Butterfly Clip" },
-    desc: {
-      vi: "Cánh bướm khảm xà cừ trắng ngà, viền kim loại vàng nhạt.",
-      en: "Butterfly wings in ivory mother-of-pearl with a light gold frame.",
-    },
+    id: "luoc-anh-dao", cat: "luoc", price: 420000,
+    name: "Lược Anh Đào",
+    imgs: ["img/products/luoc-01.jpg"],
+    desc: "Lược dáng lượn, cành hoa khảm xà cừ nổi trên nền trong, kèm dây tua ngọc trai.",
+    material: "Nhựa acetate trong · xà cừ trắng và hồng · ngọc trai nhân tạo",
   },
   {
-    id: "kep-cang-cua", cat: "kep", tier: "pho_thong", price: 70000,
-    img: "img/products/kep-06.jpg",
-    name: { vi: "Kẹp càng cua Ánh Ngà", en: "Ivory Shimmer Claw Clip" },
-    desc: {
-      vi: "Kẹp càng cua dáng chữ nhật tối giản, bề mặt xà cừ óng ánh, giữ tóc chắc.",
-      en: "A minimal rectangular claw clip with a shimmering mother-of-pearl surface and a firm hold.",
-    },
+    id: "luoc-go-roi-ngoc-no", cat: "luoc", price: 190000,
+    name: "Lược gỡ rối Ngọc Nơ",
+    imgs: ["img/products/luoc-02.jpg"],
+    desc: "Lược chải gỡ rối, thân khảm xà cừ ô vuông óng ánh, điểm nơ đính đá ở tay cầm.",
+    material: "Thân nhựa ABS · xà cừ ghép ô · đệm cao su, răng nhựa đầu tròn",
+  },
+  {
+    id: "kep-trang-sao", cat: "kep", price: 240000,
+    name: "Kẹp Trăng Sao",
+    imgs: ["img/products/kep-02.jpg"],
+    desc: "Vầng trăng khuyết khảm xà cừ trắng, điểm ngôi sao nhỏ khảm bào ngư.",
+    material: "Khung hợp kim · xà cừ trắng · vỏ bào ngư",
+  },
+  {
+    id: "kep-no-bien", cat: "kep", price: 260000,
+    name: "Kẹp nơ Sắc Biển",
+    imgs: ["img/products/kep-01.jpg"],
+    desc: "Kẹp nơ khảm vỏ bào ngư ánh xanh tím, màu đổi theo góc nhìn.",
+    material: "Khung hợp kim · vỏ bào ngư",
+  },
+  {
+    id: "kep-no-ngoc", cat: "kep", price: 220000,
+    name: "Kẹp nơ Ngọc Trắng",
+    imgs: ["img/products/kep-03.jpg"],
+    desc: "Kẹp nơ viền vàng, khảm xà cừ trắng ngà, hợp đi học, đi làm lẫn dự tiệc.",
+    material: "Khung hợp kim mạ vàng · xà cừ trắng",
+  },
+  {
+    id: "kep-hoa-mai", cat: "kep", price: 65000,
+    name: "Kẹp hoa Mai Ngọc",
+    imgs: ["img/products/kep-04.jpg"],
+    desc: "Bông hoa năm cánh khảm xà cừ, nhụy ngọc trai, nhỏ xinh dễ phối đồ.",
+    material: "Khung hợp kim · xà cừ trắng · ngọc trai nhân tạo",
+  },
+  {
+    id: "kep-buom", cat: "kep", price: 60000,
+    name: "Kẹp Bướm Ngà",
+    imgs: ["img/products/kep-05.jpg"],
+    desc: "Cánh bướm khảm xà cừ trắng ngà, viền kim loại vàng nhạt.",
+    material: "Khung hợp kim · xà cừ trắng",
+  },
+  {
+    id: "kep-cang-cua", cat: "kep", price: 70000,
+    name: "Kẹp càng cua Ánh Ngà",
+    imgs: ["img/products/kep-06.jpg"],
+    desc: "Kẹp càng cua dáng chữ nhật tối giản, bề mặt xà cừ óng ánh, giữ tóc chắc.",
+    material: "Nhựa acetate · lớp xà cừ ép",
   },
 ];
+
+/* ---------------- STUDIO ---------------- */
+const STUDIO = {
+  products: [
+    { id: "luoc-trang", name: "Lược bán nguyệt", type: "Lược", price: 320000, note: "Dài 14 cm" },
+    { id: "luoc-song", name: "Lược sóng", type: "Lược", price: 350000, note: "Dài 15 cm" },
+    { id: "kep-oval", name: "Kẹp bầu dục", type: "Kẹp tóc", price: 220000, note: "Dài 9 cm" },
+    { id: "kep-thanh", name: "Kẹp thanh", type: "Kẹp tóc", price: 180000, note: "Dài 10 cm" },
+  ],
+  bases: [
+    { id: "mun", name: "Gỗ mun", color: "#2b1d18", grain: true, tex: ["img/texture/wood-mun.jpg", 889, 500], add: 40000 },
+    { id: "huong", name: "Gỗ hương", color: "#6e3523", grain: true, tex: ["img/texture/wood-huong.jpg", 900, 600], add: 20000 },
+    { id: "bach", name: "Gỗ bách", color: "#b5824f", grain: true, tex: ["img/texture/wood-mun.jpg", 889, 500], texTint: "1.6 0 0 0 0.41  0 1.6 0 0 0.35  0 0 1.6 0 0.2  0 0 0 1 0", add: 0 },
+    { id: "sonmai", name: "Sơn mài đen", color: "#141114", grain: false, add: 30000 },
+    { id: "sonmai-tim", name: "Sơn mài tím mận", color: "#3b1631", grain: false, add: 30000 },
+  ],
+  motifs: [
+    { id: "chuong", name: "Dây hoa chuông", meaning: "Dây leo không đứt, hoa rủ mềm: sự dịu dàng và bền lâu.", add: 30000 },
+    { id: "maysao", name: "Mây sao", meaning: "Mây cuộn và sao bốn cánh: ước mơ và may mắn trên đường đi.", add: 20000 },
+    { id: "mai", name: "Hoa mai", meaning: "Hoa của Tết phương Nam: khởi đầu mới và sung túc.", add: 30000 },
+    { id: "sen", name: "Hoa sen", meaning: "Quốc hoa Việt Nam: thanh khiết, vươn lên từ bùn.", add: 50000 },
+  ],
+  nacres: [
+    { id: "ngoc", name: "Trắng ánh ngọc", tint: null, add: 0 },
+    { id: "tim", name: "Tím", tint: "#a98ad8", add: 20000 },
+    { id: "hong", name: "Hồng", tint: "#ee9fbb", add: 20000 },
+    { id: "xanh", name: "Xanh ngọc", tint: "#7fd0bf", add: 20000 },
+  ],
+  defaults: { product: "luoc-song", base: "mun", motif: "chuong", nacre: "ngoc" },
+};
+
+const fmtVND = (n) => n.toLocaleString("vi-VN") + "₫";
+const findBy = (list, id) => list.find((x) => x.id === id) || list[0];
+
+function studioPrice(cfg) {
+  return (
+    findBy(STUDIO.products, cfg.product).price +
+    findBy(STUDIO.bases, cfg.base).add +
+    findBy(STUDIO.motifs, cfg.motif).add +
+    findBy(STUDIO.nacres, cfg.nacre).add
+  );
+}
+
+function studioSpec(cfg) {
+  return [
+    findBy(STUDIO.bases, cfg.base).name,
+    "họa tiết " + findBy(STUDIO.motifs, cfg.motif).name.toLowerCase(),
+    "xà cừ " + findBy(STUDIO.nacres, cfg.nacre).name.toLowerCase(),
+  ].join(" · ");
+}

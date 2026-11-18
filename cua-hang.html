@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cửa hàng · Khảm</title>
+  <meta name="description" content="Lược, kẹp tóc và gương khảm xà cừ thủ công. Xem chất liệu, chọn gỗ và đặt hàng trực tuyến." />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Noto+Serif+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="cua-hang">
+  <main id="main">
+    <div class="container page-head">
+      <h1 class="display">Cửa hàng</h1>
+      <p class="lead">Mỗi món được khảm tay từng mảnh, nên vân ánh sẽ khác ảnh đôi chút. Món có nhãn "Tùy chỉnh được" có thể mở trong Studio để đổi gỗ, họa tiết và màu xà cừ.</p>
+    </div>
+
+    <section class="container" style="padding-bottom: var(--section)">
+      <div class="filters" id="filters" role="group" aria-label="Lọc theo loại"></div>
+      <div class="grid" id="grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog class="dialog" id="dlg" aria-labelledby="dlgName">
+    <button class="dialog__close" type="button" data-close aria-label="Đóng">×</button>
+    <div class="dialog__body">
+      <div class="dialog__gallery">
+        <div class="dialog__main"><img id="dlgImg" alt="" /></div>
+        <div class="dialog__thumbs" id="dlgThumbs"></div>
+      </div>
+      <div class="dialog__info">
+        <p class="label muted" id="dlgCat"></p>
+        <h2 class="h2" id="dlgName"></h2>
+        <p class="dialog__price" id="dlgPrice"></p>
+        <p class="muted" id="dlgDesc"></p>
+        <p class="dialog__material"><strong>Chất liệu</strong><span id="dlgMat"></span></p>
+        <div id="dlgWoodWrap">
+          <span class="field-label">Loại gỗ</span>
+          <div class="chips" id="dlgWoods" role="group" aria-label="Chọn loại gỗ"></div>
+        </div>
+        <div class="row">
+          <div class="qty" aria-label="Số lượng">
+            <button type="button" data-step="-1" aria-label="Giảm">−</button>
+            <input id="dlgQty" type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="Số lượng" />
+            <button type="button" data-step="1" aria-label="Tăng">+</button>
+          </div>
+          <button class="btn btn--primary" style="flex:1" type="button" id="dlgAdd">Thêm vào giỏ</button>
+        </div>
+        <a class="link" id="dlgStudio" href="studio.html">Tùy chỉnh mẫu này trong Studio</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
