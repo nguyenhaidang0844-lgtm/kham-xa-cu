@@ -113,16 +113,21 @@
   <script src="js/data.js"></script>
   <script src="js/store.js"></script>
   <script src="js/layout.js"></script>
-  <script src="js/renderer.js"></script>
+  <script src="js/recolor.js"></script>
   <script src="js/ui.js"></script>
   <script>
-    document.getElementById("motifs").innerHTML = STUDIO.motifs.map((m) => {
-      const cfg = { product: "luoc-trang", base: "mun", motif: m.id, nacre: "ngoc" };
-      return `<article class="motif-card">
-        ${Renderer.render(cfg, { animate: false, label: "Lược khảm họa tiết " + m.name })}
+    // Mỗi họa tiết hiển thị bằng ảnh sản phẩm thật có họa tiết đó
+    (async () => {
+      const cards = STUDIO.motifs.map((m) => {
+        const prod = STUDIO.products.find((p) => p.motifs.includes(m.id));
+        return { m, cfg: { product: prod.id, base: prod.surface === "wood" ? "mun" : "sonmai", motif: m.id, nacre: "ngoc" } };
+      });
+      const urls = await Promise.all(cards.map((c) => Recolor.dataUrl(c.cfg, 420)));
+      document.getElementById("motifs").innerHTML = cards.map(({ m, cfg }, i) => `<article class="motif-card">
+        <div class="thumb"><img src="${urls[i]}" alt="Sản phẩm khảm họa tiết ${m.name.toLowerCase()}" /></div>
         <div><h3>${m.name}</h3><p>${m.meaning}</p><a class="link" href="${studioLink(cfg)}">Dùng họa tiết này</a></div>
-      </article>`;
-    }).join("");
+      </article>`).join("");
+    })();
   </script>
 </body>
 </html>

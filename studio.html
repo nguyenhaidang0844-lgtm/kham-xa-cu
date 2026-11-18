@@ -14,7 +14,7 @@
 <body data-page="studio">
   <main id="main" class="studio">
     <section class="studio__stage" aria-label="Xem trước thiết kế">
-      <div class="studio__canvas" id="stage" aria-live="polite"></div>
+      <div class="studio__canvas" id="stage" aria-live="polite"><p class="studio__loading" id="stageLoading">Đang tải ảnh</p></div>
       <div class="studio__caption">
         <strong id="capName"></strong>
         <span id="capSpec"></span>
@@ -24,12 +24,12 @@
     <section class="studio__panel" aria-label="Tùy chỉnh">
       <div>
         <h1>Studio thiết kế</h1>
-        <p class="muted" style="margin-top:8px">Bốn bước, xem trước ngay sau mỗi lựa chọn. Thợ khảm sẽ làm đúng theo bản thiết kế này.</p>
+        <p class="muted" style="margin-top:8px">Bốn bước. Màu được đổi ngay trên ảnh sản phẩm thật, thợ khảm làm đúng theo bản thiết kế này.</p>
       </div>
 
       <div>
         <div class="step-title"><h2>1 · Sản phẩm</h2><span id="lblProduct"></span></div>
-        <div class="options" id="optProduct" role="group" aria-label="Chọn sản phẩm"></div>
+        <div class="options options--3" id="optProduct" role="group" aria-label="Chọn sản phẩm"></div>
       </div>
 
       <div>
@@ -70,7 +70,7 @@
   <script src="js/data.js"></script>
   <script src="js/store.js"></script>
   <script src="js/layout.js"></script>
-  <script src="js/renderer.js"></script>
+  <script src="js/recolor.js"></script>
   <script src="js/studio.js"></script>
 </body>
 </html>

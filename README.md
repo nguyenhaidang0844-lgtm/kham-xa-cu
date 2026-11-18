@@ -17,7 +17,9 @@ Web tĩnh (HTML, CSS, JavaScript thuần), không cần cài đặt. Giỏ hàng
 | Instagram, Zalo, email, phí giao hàng | `js/data.js` → `SITE` |
 | Sản phẩm, giá, mô tả, chất liệu | `js/data.js` → `PRODUCTS` |
 | Lựa chọn và giá trong Studio | `js/data.js` → `STUDIO` |
-| Hình dáng sản phẩm, cách vẽ họa tiết | `js/renderer.js` |
+| Cách đổi màu trên ảnh thật (dải màu gỗ, màu xà cừ) | `js/recolor.js`, `js/data.js` → `STUDIO.bases`, `STUDIO.nacres` |
+| Ảnh sản phẩm Studio (ảnh cắt + mặt nạ xà cừ / nền / độ trong suốt) | `img/studio/<sản phẩm>-<họa tiết>.jpg` và `-mask.png` |
+| Hoa xà cừ nở ở trang chủ | `img/bloom/` |
 | Header, footer | `js/layout.js` |
 | Màu, font | `css/style.css` → `:root` |
 

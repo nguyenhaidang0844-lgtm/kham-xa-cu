@@ -6,13 +6,13 @@
 
   function lineHTML(l) {
     const thumb = l.kind === "custom"
-      ? Renderer.render(l.config, { animate: false, label: l.name })
+      ? `<img data-cfg='${JSON.stringify(normalizeCfg(l.config))}' alt="${l.name}" />`
       : `<img src="${l.img}" alt="${l.name}" />`;
     const edit = l.kind === "custom"
-      ? `<a class="text-btn" href="studio.html?${new URLSearchParams(l.config)}">Sửa thiết kế</a>`
+      ? `<a class="text-btn" href="studio.html?${new URLSearchParams(normalizeCfg(l.config))}">Sửa thiết kế</a>`
       : `<a class="text-btn" href="cua-hang.html?item=${l.productId}">Xem sản phẩm</a>`;
     return `<li class="cart-line" data-key="${l.key}">
-      <div class="cart-line__img">${thumb}</div>
+      <div class="cart-line__img${l.kind === "custom" ? " is-custom" : ""}">${thumb}</div>
       <div>
         ${l.kind === "custom" ? `<span class="badge">Thiết kế riêng</span>` : ""}
         <h3>${l.name}</h3>
@@ -48,6 +48,13 @@
       <div class="progress" aria-hidden="true"><i style="width:${pct}%"></i></div>`;
   }
 
+  function fillThumbs() {
+    document.querySelectorAll("img[data-cfg]").forEach(async (img) => {
+      img.src = await Recolor.dataUrl(JSON.parse(img.dataset.cfg), 360);
+      img.removeAttribute("data-cfg");
+    });
+  }
+
   function render() {
     const cart = Store.cart();
     document.getElementById("pageTitle").textContent = "Giỏ hàng";
@@ -79,6 +86,7 @@
         </form>
       </aside>
     </div>`;
+    fillThumbs();
   }
 
   function refreshLinesAndSum() {
@@ -86,6 +94,7 @@
     const lines = document.getElementById("lines");
     if (!Store.cart().length) { render(); return; }
     lines.innerHTML = Store.cart().map(lineHTML).join("");
+    fillThumbs();
     document.getElementById("sum").innerHTML = summaryHTML();
   }
 

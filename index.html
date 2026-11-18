@@ -15,26 +15,42 @@
 </head>
 <body data-page="home">
   <main id="main">
-    <!-- HERO -->
-    <section class="hero on-dark">
+    <!-- HERO: hoa xà cừ nở từ hai mép màn hình, hai cột lối tắt kiểu cửa Đông Dương -->
+    <section class="hero">
+      <div class="bloom bloom--vine l" aria-hidden="true"><img src="img/bloom/bloom-1.png" alt="" /></div>
+      <div class="bloom bloom--vine r" aria-hidden="true"><img src="img/bloom/bloom-2.png" alt="" /></div>
+      <div class="bloom bloom--flower l" aria-hidden="true"><div class="petals"><img src="img/bloom/flower-1.png" alt="" /><span class="shine" style="--img:url(../img/bloom/flower-1.png)"></span></div></div>
+      <div class="bloom bloom--flower r" aria-hidden="true"><div class="petals"><img src="img/bloom/flower-2.png" alt="" /><span class="shine" style="--img:url(../img/bloom/flower-2.png)"></span></div></div>
+
       <div class="container hero__inner">
-        <a class="hero__arch arch" href="cua-hang.html?item=kep-son-mai-mai-trang" aria-label="Kẹp sơn mài Mai Trắng">
-          <img src="img/mockup/m06-sq.jpg" alt="" />
-        </a>
-        <div class="hero__center fade-in">
+        <nav class="portal l" aria-label="Mua sắm">
+          <p class="portal__title">Mua sắm</p>
+          <ul>
+            <li><a href="cua-hang.html"><b>Cửa hàng</b><small>Tất cả mẫu khảm sẵn</small></a></li>
+            <li><a href="cua-hang.html?cat=luoc"><b>Lược</b><small>Gỗ mun, gỗ hương, gỗ bách</small></a></li>
+            <li><a href="cua-hang.html?cat=kep"><b>Kẹp tóc</b><small>Sơn mài khảm hoa</small></a></li>
+          </ul>
+        </nav>
+
+        <div class="hero__center">
           <img class="logo-big" src="img/brand/logo-ivory.png" alt="Khảm" width="600" height="320" />
           <p class="lead">Lược và kẹp tóc khảm xà cừ thủ công Việt Nam. Bạn chọn gỗ, họa tiết và màu xà cừ, thợ khảm làm đúng bản thiết kế ấy.</p>
           <div class="hero__ctas">
-            <a class="btn btn--primary btn--light" href="studio.html">Tự thiết kế</a>
-            <a class="btn btn--ghost btn--light" href="cua-hang.html">Xem cửa hàng</a>
+            <a class="btn btn--primary" href="studio.html">Tự thiết kế</a>
           </div>
         </div>
-        <a class="hero__arch arch" href="cua-hang.html?item=luoc-trang-may-sao" aria-label="Lược bán nguyệt Mây Sao">
-          <img src="img/mockup/m04-sq.jpg" alt="" />
-        </a>
+
+        <nav class="portal r" aria-label="Khám phá">
+          <p class="portal__title">Khám phá</p>
+          <ul>
+            <li><a href="studio.html"><b>Studio</b><small>Đổi gỗ, họa tiết, màu xà cừ</small></a></li>
+            <li><a href="cau-chuyen.html"><b>Câu chuyện</b><small>Nghề khảm của người Việt</small></a></li>
+            <li><a href="gio-hang.html"><b>Giỏ hàng</b><small>Xem và đặt đơn</small></a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="band band--inverse" aria-hidden="true"></div>
     </section>
+    <div class="band" aria-hidden="true"></div>
 
     <!-- SẢN PHẨM NỔI BẬT -->
     <section class="section container">
@@ -46,7 +62,7 @@
     </section>
 
     <!-- CÂU CHUYỆN CHẤT LIỆU -->
-    <section class="section" style="background: var(--ivory-2)">
+    <section class="section on-dark">
       <div class="container split">
         <figure class="split__media"><div class="arch"><img src="img/texture/nacre-spiral.jpg" alt="Cận cảnh mặt trong vỏ trai óng ánh" loading="lazy" /></div></figure>
         <div>
@@ -65,7 +81,7 @@
     </section>
 
     <!-- STUDIO -->
-    <section class="section on-dark">
+    <section class="section">
       <div class="container teaser">
         <div>
           <div class="teaser__stage" id="teaserStage"></div>
@@ -74,11 +90,11 @@
         <div>
           <h2 class="h2">Tự thiết kế, xem trước ngay</h2>
           <span class="sheen-rule"></span>
-          <p class="lead" style="margin-top:24px">Thử chạm vào các màu xà cừ bên cạnh. Trong Studio, bạn chọn thêm dáng lược hoặc kẹp, nền gỗ và họa tiết. Mất khoảng một phút.</p>
+          <p class="lead" style="margin-top:24px">Thử chạm vào các màu xà cừ bên dưới ảnh: màu được đổi ngay trên ảnh sản phẩm thật. Trong Studio, bạn chọn thêm dáng lược hoặc kẹp, nền gỗ và họa tiết. Mất khoảng một phút.</p>
           <ol class="steps-inline">
-            <li>Chọn sản phẩm: lược bán nguyệt, lược sóng, kẹp bầu dục, kẹp thanh</li>
+            <li>Chọn sản phẩm: kẹp bầu dục, lược sóng, lược bán nguyệt</li>
             <li>Chọn nền: gỗ mun, gỗ hương, gỗ bách hoặc sơn mài</li>
-            <li>Chọn họa tiết: hoa chuông, mây sao, hoa mai, hoa sen</li>
+            <li>Chọn họa tiết: hoa và bướm, cành mai, xuân thì, hoa chuông, mây sao</li>
             <li>Chọn màu xà cừ, xem giá và thêm vào giỏ</li>
           </ol>
           <div class="row" style="margin-top:32px">
@@ -112,7 +128,7 @@
   <script src="js/data.js"></script>
   <script src="js/store.js"></script>
   <script src="js/layout.js"></script>
-  <script src="js/renderer.js"></script>
+  <script src="js/recolor.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/home.js"></script>
 </body>

@@ -17,7 +17,8 @@ const Store = (() => {
     };
   }
 
-  function lineFromConfig(cfg) {
+  function lineFromConfig(raw) {
+    const cfg = normalizeCfg(raw);
     const prod = findBy(STUDIO.products, cfg.product);
     return {
       key: "custom:" + [cfg.product, cfg.base, cfg.motif, cfg.nacre].join(":"),

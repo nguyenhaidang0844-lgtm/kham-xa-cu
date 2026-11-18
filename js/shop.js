@@ -13,6 +13,7 @@
   function paintGrid() {
     const list = PRODUCTS.filter((p) => cat === "all" || p.cat === cat);
     $("#grid").innerHTML = list.map((p) => cardHTML(p)).join("");
+    fillCuts($("#grid"));
   }
   $("#filters").addEventListener("click", (e) => {
     const b = e.target.closest("[data-cat]");
@@ -63,7 +64,7 @@
   function paintWoods() {
     $("#dlgWoods").innerHTML = current.woods.map((w) => {
       const b = findBy(STUDIO.bases, w);
-      return `<button class="chip" type="button" data-wood="${w}" aria-pressed="${w === wood}"><i style="background:${b.color}"></i>${b.name}</button>`;
+      return `<button class="chip" type="button" data-wood="${w}" aria-pressed="${w === wood}"><i style="background:${b.swatch}"></i>${b.name}</button>`;
     }).join("");
   }
 

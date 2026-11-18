@@ -18,7 +18,7 @@
       <div class="header__inner">
         <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
         <nav class="nav" id="nav" aria-label="Chính">${navHtml}</nav>
-        <a href="index.html" class="logo" aria-label="Khảm, về trang chủ"><img src="img/brand/logo-ink.png" alt="Khảm" width="96" height="51" /></a>
+        <a href="index.html" class="logo" aria-label="Khảm, về trang chủ"><img src="img/brand/logo-ivory.png" alt="Khảm" width="96" height="51" /></a>
         <div class="header__right">
           <a href="gio-hang.html" class="cart-link"${page === "gio-hang" ? ' aria-current="page"' : ""}>
             <span class="cart-link__text">Giỏ hàng</span> <span class="cart-count" data-cart-count>0</span>
@@ -67,7 +67,8 @@
         <a href="#top">Lên đầu trang</a>
       </div>
     </footer>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>`
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="aurora" aria-hidden="true"></div>`
   );
 
   // Đếm giỏ hàng

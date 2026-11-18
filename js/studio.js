@@ -1,51 +1,67 @@
 (() => {
   const $ = (s) => document.querySelector(s);
   const params = new URLSearchParams(location.search);
-  const valid = (list, id) => list.some((x) => x.id === id);
+  const cfg = normalizeCfg(Object.fromEntries(params));
 
-  const cfg = { ...STUDIO.defaults };
-  [["product", STUDIO.products], ["base", STUDIO.bases], ["motif", STUDIO.motifs], ["nacre", STUDIO.nacres]].forEach(([k, list]) => {
-    const v = params.get(k);
-    if (v && valid(list, v)) cfg[k] = v;
-  });
-
-  /* ---------- Xem trước: chồng lớp mới lên, lớp cũ mờ dần ---------- */
+  /* ---------- Xem trước: ảnh thật đã đổi màu, lớp mới chồng lên lớp cũ ---------- */
   const stage = $("#stage");
-  function paintStage() {
+  let ticket = 0;
+  async function paintStage() {
+    const my = ++ticket;
+    const canvas = await Recolor.render(cfg, 1000);
+    if (my !== ticket) return;                         // người dùng đã bấm lựa chọn khác
+    $("#stageLoading")?.remove();
     const prod = findBy(STUDIO.products, cfg.product);
     const layer = document.createElement("div");
     layer.className = "studio__layer";
-    layer.innerHTML = Renderer.render(cfg, { label: `${prod.name}, ${studioSpec(cfg)}` });
-    const old = [...stage.children];
+    const view = document.createElement("canvas");
+    view.width = canvas.width; view.height = canvas.height;
+    view.getContext("2d").drawImage(canvas, 0, 0);
+    view.setAttribute("role", "img");
+    view.setAttribute("aria-label", `${prod.name}, ${studioSpec(cfg)}`);
+    layer.appendChild(view);
+    const old = [...stage.querySelectorAll(".studio__layer")];
     stage.appendChild(layer);
-    old.forEach((el) => { el.classList.add("is-leaving"); setTimeout(() => el.remove(), 420); });
+    old.forEach((el) => { el.classList.add("is-leaving"); setTimeout(() => el.remove(), 460); });
   }
 
   /* ---------- Các lựa chọn ---------- */
   const pressed = (on) => `aria-pressed="${on}"`;
+  let optTicket = 0;
 
-  function paintOptions() {
-    $("#optProduct").innerHTML = STUDIO.products.map((p) => `
+  async function paintOptions() {
+    const my = ++optTicket;
+    const prod = findBy(STUDIO.products, cfg.product);
+    const [prodThumbs, motifThumbs, nacreUrls] = await Promise.all([
+      Promise.all(STUDIO.products.map((p) => Recolor.dataUrl(normalizeCfg({ ...cfg, product: p.id }), 360))),
+      Promise.all(prod.motifs.map((m) => Recolor.dataUrl({ ...cfg, motif: m }, 360))),
+      Promise.all(STUDIO.nacres.map((n) => Recolor.swatch(n.id))),
+    ]);
+    if (my !== optTicket) return;
+
+    $("#optProduct").innerHTML = STUDIO.products.map((p, i) => `
       <button class="opt" type="button" data-k="product" data-v="${p.id}" ${pressed(p.id === cfg.product)}>
-        ${Renderer.render({ ...cfg, product: p.id }, { animate: false })}
-        <b>${p.name}</b><small>${p.type} · ${p.note} · từ ${fmtVND(p.price)}</small>
+        <span class="thumb"><img src="${prodThumbs[i]}" alt="" /></span>
+        <b>${p.name}</b><small>${p.note} · từ ${fmtVND(p.price)}</small>
       </button>`).join("");
 
     $("#optBase").innerHTML = STUDIO.bases.map((b) => `
       <button class="chip" type="button" data-k="base" data-v="${b.id}" ${pressed(b.id === cfg.base)}>
-        <i style="background:${b.color}"></i>${b.name}${b.add ? ` <small class="muted">+${b.add / 1000}k</small>` : ""}
+        <i style="background:${b.swatch}"></i>${b.name}${b.add ? ` <small class="muted">+${b.add / 1000}k</small>` : ""}
       </button>`).join("");
 
-    $("#optMotif").innerHTML = STUDIO.motifs.map((m) => `
-      <button class="opt" type="button" data-k="motif" data-v="${m.id}" ${pressed(m.id === cfg.motif)}>
-        ${Renderer.render({ ...cfg, motif: m.id }, { animate: false })}
+    $("#optMotif").innerHTML = prod.motifs.map((id, i) => {
+      const m = findBy(STUDIO.motifs, id);
+      return `<button class="opt" type="button" data-k="motif" data-v="${m.id}" ${pressed(m.id === cfg.motif)}>
+        <span class="thumb"><img src="${motifThumbs[i]}" alt="" /></span>
         <b>${m.name}</b><small>+${fmtVND(m.add)}</small>
-      </button>`).join("");
+      </button>`;
+    }).join("") + (prod.motifs.length === 1 ? `<p class="empty-note" style="align-self:center">Dáng ${prod.name.toLowerCase()} hiện có một họa tiết. Kẹp bầu dục có bốn họa tiết để chọn.</p>` : "");
 
-    $("#optNacre").innerHTML = STUDIO.nacres.map((n) => `
+    $("#optNacre").innerHTML = STUDIO.nacres.map((n, i) => `
       <div class="swatch-wrap">
-        <button class="swatch" type="button" data-k="nacre" data-v="${n.id}" ${pressed(n.id === cfg.nacre)} aria-label="${n.name}">${Renderer.swatch(n.id)}</button>
-        <span>${n.name}${n.add ? `<br><small class="muted">+${n.add / 1000}k</small>` : ""}</span>
+        <button class="swatch" type="button" data-k="nacre" data-v="${n.id}" ${pressed(n.id === cfg.nacre)} aria-label="${n.name}" style="background-image:url(${nacreUrls[i]})"></button>
+        <span>${n.name}${n.add ? `<br><small>+${n.add / 1000}k</small>` : ""}</span>
       </div>`).join("");
   }
 
@@ -74,10 +90,11 @@
     history.replaceState(null, "", "?" + new URLSearchParams(cfg).toString());
   }
 
-  function update(full = true) {
-    paintStage();
-    if (full) paintOptions();
+  function update() {
+    Object.assign(cfg, normalizeCfg(cfg));
     paintText();
+    paintStage();
+    paintOptions();
   }
 
   document.querySelector(".studio__panel").addEventListener("click", (e) => {
@@ -86,9 +103,9 @@
     const { k, v } = btn.dataset;
     if (cfg[k] === v) return;
     cfg[k] = v;
+    // phản hồi ngay trên nút vừa bấm, trước khi ảnh thu nhỏ vẽ lại xong
+    btn.parentElement.closest("[role=group]")?.querySelectorAll("[data-k]").forEach((b) => b.setAttribute("aria-pressed", b === btn));
     update();
-    // giữ focus trên lựa chọn vừa bấm sau khi vẽ lại
-    document.querySelector(`[data-k="${k}"][data-v="${v}"]`)?.focus({ preventScroll: true });
   });
 
   /* ---------- Số lượng ---------- */
@@ -121,18 +138,21 @@
     update();
   });
 
-  function paintSaved() {
-    const list = Store.saved();
-    $("#savedList").innerHTML = list.length
-      ? list.map((s) => `
-        <div class="saved__item">
-          <button class="load" type="button" data-load="${s.id}" aria-label="Mở thiết kế ${findBy(STUDIO.products, s.config.product).name}">
-            ${Renderer.render(s.config, { animate: false })}
-          </button>
-          <small>${findBy(STUDIO.products, s.config.product).name} · ${fmtVND(studioPrice(s.config))}</small>
-          <button class="del" type="button" data-del="${s.id}" aria-label="Xóa thiết kế đã lưu">×</button>
-        </div>`).join("")
-      : `<p class="empty-note" style="grid-column:1/-1">Chưa có thiết kế nào. Bấm "Lưu thiết kế" để giữ lại và so sánh.</p>`;
+  async function paintSaved() {
+    const list = Store.saved().map((s) => ({ ...s, config: normalizeCfg(s.config) }));
+    if (!list.length) {
+      $("#savedList").innerHTML = `<p class="empty-note" style="grid-column:1/-1">Chưa có thiết kế nào. Bấm "Lưu thiết kế" để giữ lại và so sánh.</p>`;
+      return;
+    }
+    const thumbs = await Promise.all(list.map((s) => Recolor.dataUrl(s.config, 300)));
+    $("#savedList").innerHTML = list.map((s, i) => `
+      <div class="saved__item">
+        <button class="load" type="button" data-load="${s.id}" aria-label="Mở thiết kế ${findBy(STUDIO.products, s.config.product).name}">
+          <img src="${thumbs[i]}" alt="" />
+        </button>
+        <small>${findBy(STUDIO.products, s.config.product).name} · ${fmtVND(studioPrice(s.config))}</small>
+        <button class="del" type="button" data-del="${s.id}" aria-label="Xóa thiết kế đã lưu">×</button>
+      </div>`).join("");
   }
   $("#savedList").addEventListener("click", (e) => {
     const load = e.target.closest("[data-load]");
@@ -140,7 +160,7 @@
     if (del) { Store.unsave(del.dataset.del); paintSaved(); return; }
     if (load) {
       const s = Store.saved().find((x) => x.id === load.dataset.load);
-      if (s) { Object.assign(cfg, s.config); update(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+      if (s) { Object.assign(cfg, normalizeCfg(s.config)); update(); window.scrollTo({ top: 0, behavior: "smooth" }); }
     }
   });
 
